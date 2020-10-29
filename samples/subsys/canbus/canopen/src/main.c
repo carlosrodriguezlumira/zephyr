@@ -242,7 +242,7 @@ void main(void)
 
 		LOG_INF("CANopen stack initialized");
 
-		canopen_storage_attach(CO->SDO[0], CO->em);
+		//canopen_storage_attach(CO->SDO[0], CO->em);
 		config_leds(CO->NMT);
 		CO_OD_configure(CO->SDO[0], OD_2102_buttonPressCounter,
 				odf_2102, NULL, 0U, 0U);
@@ -268,11 +268,14 @@ void main(void)
 				OD_buttonPressCounter = counter;
 				CO_UNLOCK_OD();
 
+                /*
 				ret = canopen_storage_save(
 					CANOPEN_STORAGE_EEPROM);
 				if (ret) {
 					LOG_ERR("failed to save EEPROM");
 				}
+				*/
+				
 				/*
 				 * Try to sleep for as long as the
 				 * stack requested and calculate the
